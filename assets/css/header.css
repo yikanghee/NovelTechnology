@@ -1,0 +1,132 @@
+
+.header {
+    width: 100%;
+    background-color: #282828;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 상단 바 */
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding:10px 10px;
+    background-color: #141414;
+}
+
+.top-bar button {
+    display: inline-block;
+    background-color: transparent; 
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 5px;
+    padding: 0px 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.top-bar a:hover {
+    background-color: #141414;
+}
+
+
+/* 메인 네비게이션 */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    background-color: #141414;
+}
+
+.comnLogo img {
+    height: 50px;
+}
+
+.group-select {
+    display: flex;
+    align-items: center;
+    
+}
+
+.group-select label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.group-select select {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #141414;
+    cursor: pointer;
+    text-align: center;
+    width: 300px;
+}
+
+.group-select select:hover {
+    border-color: #65ceff;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    background-color: #141414;
+}
+
+.nav-menu li {
+    height: 56px;
+    text-align: center;
+    border-left: 1px solid #ccc; /* 메뉴 사이에 세로 줄 추가 */
+    line-height: 56px;
+    width: 166.66px;
+}
+
+.nav-menu li:first-child {
+    border-left: none; /* 첫 번째 메뉴에서 세로 줄 제거 */  
+}
+
+.nav-menu li:last-child {
+    border-right: none; /* 마지막 메뉴에서 세로 줄 제거 */
+}
+
+.nav-menu li a {
+    display: block; /* 텍스트가 부드럽게 렌더링 */
+    
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+.nav-menu li a:hover {
+    color: #65ceff;
+}
+
+ /* 라이트 모드 스타일 */
+ .light-mode {
+    background-color: #ffffff;
+    color: #141414;
+}
+
+.light-mode .top-bar {
+    background-color: #ffffff;
+}
+
+.light-mode .nav-bar {
+    background-color: #ffffff;
+}
+
+.light-mode .group-select select {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.light-mode .nav-menu li a {
+    color: #333;
+}

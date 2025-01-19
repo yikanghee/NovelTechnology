@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="../../assets/css/header.css" rel="stylesheet">
+    <link href="../../assets/css/common.css" rel="stylesheet">
+    <style>
+        .main {
+            height: calc(100% - 150px);
+
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            margin: 10px;
+        }
+
+        div.section {
+            border-radius: 10px;
+            flex: 1;
+        }
+
+        div.section:nth-child(1) {flex:2;}
+        div.section:nth-child(2) {flex:3;}
+        div.section:nth-child(3) {flex:1;}
+
+        div#area-left {
+            flex-shrink: 0;
+
+            padding: 7px;
+            background-color: #141414;
+        }
+
+        /***************/
+
+        div#area-center {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        div#area-center>* {
+            height: 100%;
+        }
+
+        div#area-center div:nth-child(1) {
+            flex: 1;
+        }
+
+        div#area-center div:nth-child(2) {
+            flex: 2;
+        }
+
+        div#area-center div:nth-child(3) {
+            flex: 3;
+        }
+
+        div#area-center>div:not(.article-background) {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 10px;
+        }
+
+        div#area-center>div:not(.article-background)>* {
+            flex: 1;
+        }
+
+        div#area-center .article-background>p,
+        div#area-right p {
+
+            text-align: center;
+        }
+
+        /**********************/
+
+        div#area-right {
+            display: flex;
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        div#area-right>*:nth-child(n+2) {
+            flex: 1;
+        }
+
+        .artice-right:nth-child(1) {
+            padding: 15px 32px;
+        }
+
+        .artice-right>#date {
+            color: #FFF;
+
+            text-align: center;
+            font-family: Pretendard;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 50px;
+            /* 125% */
+        }
+
+        .artice-right>#time {
+            color: #57AA93;
+            font-family: Pretendard;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 50px;
+        }
+
+
+
+        .article-background {
+            border-radius: 10px;
+            background: #141414;
+        }
+    </style>
+</head>
+
+<body>
+    <!----------------------- header area -------------------------------->
+    <div class="header">
+        <!-- 상단 로그아웃 및 메인화면 -->
+        <div class="top-bar">
+            <button id="darkModeToggle">
+                <img src="../assets/image/다크모드.svg" alt="메인 일러스트" class="top-bar-img">
+            </button>
+            <button onclick="location.href='#';">
+                <img src="../../assets/image/홈.svg" alt="메인 일러스트" class="top-bar-img">
+            </button>
+            <button onclick="location.href='#';">
+                <img src="../assets/image/메뉴숨기기.svg" alt="메인 일러스트" class="top-bar-img">
+            </button>
+            <button onclick="location.href='#';">
+                <img src="../../assets/image/나가기.svg" alt="메인 일러스트" class="top-bar-img">
+            </button>
+        </div>
+
+        <!-- 네비게이션 바 -->
+        <div class="nav-bar">
+            <!-- 로고 -->
+            <div class="comnLogo">
+                <img src="../../assets/image/메인%20일러스트.svg" alt="로고">
+            </div>
+
+            <!-- 그룹 선택 -->
+            <div class="group-select">
+                <label for="plantGriId">그룹선택 :</label>
+                <select id="plantGriId">
+                    <option>전체</option>
+                    <option>TEST1</option>
+                    <option>TEST2</option>
+                    <option>TEST3</option>
+                    <option>TEST4</option>
+                    <option>TEST5</option>
+                    <option>TEST6</option>
+                    <option>TEST7</option>
+                    <option>TEST8</option>
+                    <option>TEST9</option>
+                    <option>극동대학교</option>
+                    <option>진천군청</option>
+                    <option>청주산단</option>
+                    <option>충북TP_1차</option>
+                    <option>충북TP_2차</option>
+                    <option>충북TP_LTE</option>
+                    <option>태양광기술센터</option>
+                </select>
+            </div>
+
+            <!-- 메뉴 -->
+            <ul class="nav-menu">
+                <li><a href="#">점검관리</a></li>
+                <li><a href="#">발전소현황</a></li>
+                <li><a href="#">장애정보</a></li>
+                <li><a href="#">발전소관리</a></li>
+                <li><a href="#">사용자관리</a></li>
+            </ul>
+        </div>
+    </div>
+    <!----------------------- header area -------------------------------->
+
+    <!----------------------- page3 area -------------------------------->
+    <div class="main">
+        <div class="section" id="area-left">
+            <p class="article-title">지역별 발전소</p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>발전소명</th>
+                        <th>현재출력 (kw)</th>
+                        <th>금일</th>
+                        <th>전일</th>
+                        <th>발전시간</th>
+                        <th>상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="section" id="area-center">
+            <div>
+                <div class="article-background">
+                    <p class="article-title">전체 발전량</p>
+                </div>
+                <div class="article-background">
+                    <p class="article-title">전체 발전소 현황</p>
+                </div>
+            </div>
+            <div>
+                <div class="article-background">
+                    <p class="article-title">충청북도 발전소 설치 현황</p>
+                </div>
+                <div class="article-background">
+                    <p class="article-title">발전소 발전효율 [월]</p>
+                </div>
+            </div>
+            <div class="article-background">
+                <p class="article-title">지역별 발전소 현황</p>
+            </div>
+        </div>
+        <div class="section" id="area-right">
+            <div class="artice-right article-background">
+                <p id="date">2024-07-16 (화)</p>
+                <p id="time">16:00:00</p>
+            </div>
+            <div class="artice-right article-background">
+                <p class="article-title">발전소 별 발전 시간 [일]</p>
+            </div>
+            <div class="artice-right article-background">
+                <p class="article-title">발전소 별 발전 시간 [일]</p>
+            </div>
+        </div>
+    </div>
+    <!----------------------- page3 area -------------------------------->
+</body>
+
+</html>
