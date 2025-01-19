@@ -136,6 +136,19 @@
             width: 1.2em;
         }
 
+        /** 사용자 정보 수정 시 수정/삭제/취소 버튼 표시 **/
+        .input-area + .btn-area .btn:nth-child(n+3),
+        .input-area.update + .btn-area .btn:nth-child(1),
+        .input-area.update + .btn-area .btn:nth-child(2) { 
+            display: none;
+        }
+
+        .input-area.update + .btn-area .btn:nth-child(n+3),
+        .input-area + .btn-area .btn:nth-child(1),
+        .input-area + .btn-area .btn:nth-child(2) { 
+            display: inline-block;
+        }
+        /***********************************************/
 
         .right-area #user-manage table {
             border-spacing: 0 1em;
@@ -547,6 +560,8 @@
                             권한 관리
                         </button>
                     </div>
+
+                    <!-- div.input-area 요소에 update 클래스 추가 시 [수정], [삭제], [취소] 버튼 표시 -->
                     <div class="input-area">
                         <p class="article-title">
                             <img src="../../assets/image/page10/fi_17701286.svg" alt="사용자 아이콘">
