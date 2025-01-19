@@ -805,7 +805,8 @@
     const showUserManage = () => {
         const userManageEle = document.querySelector("#user-manage");
         const className = userManageEle.className;
-        userManageEle.className = className + " show";
+        if (className.indexOf("show") == -1)
+            userManageEle.className = className + " show";
 
         removeShowClass(document.querySelector("#perm-manage"));
     }
@@ -814,13 +815,14 @@
     const showPermManage = () => {
         const permManageEle = document.querySelector("#perm-manage");
         const className = permManageEle.className;
-        permManageEle.className = className + " show";
+        if (className.indexOf("show") == -1)
+            permManageEle.className = className + " show";
 
         removeShowClass(document.querySelector("#user-manage"));
     }
 
     const removeShowClass = (target) => {
-        target.className = target.className.replace("show", "").trim();
+        target.className = target.className.replace(/show/gi, "").trim();
     }
 </script>
 
