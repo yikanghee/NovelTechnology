@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
-
         body {
             margin: 0;
             font-family: Pretendard;
@@ -25,13 +25,13 @@
         .top-bar {
             display: flex;
             justify-content: flex-end;
-            padding:10px 10px;
+            padding: 10px 10px;
             background-color: #141414;
         }
 
         .top-bar button {
             display: inline-block;
-            background-color: transparent; 
+            background-color: transparent;
             text-decoration: none;
             font-size: 14px;
             margin-left: 5px;
@@ -43,7 +43,7 @@
         .top-bar a:hover {
             background-color: #141414;
         }
-        
+
 
         /* 메인 네비게이션 */
         .nav-bar {
@@ -90,7 +90,7 @@
             padding: 0;
             margin-left: auto;
             background-color: #141414;
-            
+
             font-size: 25px;
             font-style: normal;
             font-weight: 900;
@@ -105,30 +105,56 @@
             width: 166.66px;
         }
 
-        .nav-menu li:first-child {
-            border-left: none; /* 첫 번째 메뉴에서 세로 줄 제거 */  
-}
+        .nav-menu>li:first-child, .nav-menu>li:first-child * {
+            border-left: none;
+            /* 첫 번째 메뉴에서 세로 줄 제거 */
+        }
 
-        .nav-menu li:last-child {
-            border-right: none; /* 마지막 메뉴에서 세로 줄 제거 */
-}
+        .nav-menu>li:last-child {
+            border-right: none;
+            /* 마지막 메뉴에서 세로 줄 제거 */
+        }
 
         .nav-menu li a {
             display: block; /* 텍스트가 부드럽게 렌더링 */
-            
+
         }
         .nav-menu a {
             text-decoration: none;
             color: #fff;
-            
+            font-size: 16px;
         }
 
         .nav-menu li a:hover {
             color: #65ceff;
         }
 
-         /* 라이트 모드 스타일 */
-         .light-mode {
+        ul.nav-menu,
+        .nav-menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu>li>ul {
+            display: none;
+        }
+
+        .nav-menu li a:hover {
+            color: #65ceff;
+            /* font-size: 20px; */
+            scale: 1.1;
+        }
+
+        .nav-menu:has(a:hover) ul {
+            display: block;
+        }
+
+        .nav-menu>li>ul {
+            background: linear-gradient(to right, #3F493E33, #030301);
+        }
+        /* 라이트 모드 스타일 */
+        .light-mode {
             background-color: #ffffff;
             color: #141414;
         }
@@ -201,16 +227,86 @@
             </div>
             <!-- 메뉴 -->
             <ul class="nav-menu">
-                <li><a href="#">점검관리</a></li>
-                <li><a href="#">발전소현황</a></li>
-                <li><a href="#">장애정보</a></li>
-                <li><a href="#">발전소관리</a></li>
-                <li><a href="#">사용자관리</a></li>
+                <li>
+                    <a href="#">점검관리</a>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">발전소현황</a>
+                    <ul>
+                        <li><a href="#">실시간 발전소 현황</a></li>
+                        <li><a href="#">발전량 검색</a></li>
+                        <li><a href="#">월간보고서</a></li>
+                        <li><a href="#">주소기반</a></li>
+                        <li><a href="#">예상 발전량</a></li>
+                        <li><a href="#">데이터 삭제</a></li>
+                        <li><a href="#">예측발전 통계</a></li>
+                        <li><a href="#">LoRa 장비 상태</a></li>
+                        <li><a href="#">모듈 감시 현황</a></li>
+                        <li><a href="#">모듈 아이디 등록</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">장애정보</a>
+                    <ul>
+                        <li><a href="#">MENU</a></li>
+                        <li><a href="#">MENU</a></li>
+                        <li><a href="#">MENU</a></li>
+                        <li><a href="#">MENU</a></li>
+                        <li><a href="#">MENU</a></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">발전소관리</a>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">사용자관리</a>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
             </ul>
 
-          </div>
-        
+        </div>
+
     </div>
-    
+
 </body>
 </html>
