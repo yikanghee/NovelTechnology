@@ -47,7 +47,6 @@
             list-style-type: none;
             float: left;
             font-size: 1.1rem;
-            ;
         }
 
         #left-area li {
@@ -57,6 +56,11 @@
 
         #left-area li.select {
             border-bottom: 0.16em solid white;
+        }
+
+        #left-area li a {
+            text-decoration: none;
+            color: white;
         }
 
         #left-area #bottom {
@@ -71,29 +75,37 @@
         /*********************************************************/
 
         /******************* right area **************************/
-        #right-area {
+        .right-area {
             display: flex;
             flex-direction: column;
             padding: 1em;
-        }
-
-        #right-area .top {
+        }        
+        
+        .right-area .top {
             padding-bottom: 2em;
         }
-
-        #right-area .top * {
+        
+        .right-area .top > * {
             float: right;
         }
-
-        #right-area .middle {
-            flex: 1;
+        
+        .right-area .middle {
+            flex: 1;        
         }
-
-        #right-area .middle > * {
+        .right-area .middle>* {
+            display: none;
             margin: 1em 0;
         }
+        
+        .right-area .middle .show {
+            display: block;
+        }
 
-        #right-area .middle .input-area {
+        .right-area .btn-area {
+            margin-bottom: 10px;
+        }
+
+        .right-area .input-area {
             border-radius: 10px;
             padding: 2em;
             background: #141414;
@@ -103,25 +115,34 @@
             flex-direction: column;
         }
 
-        #right-area .btn {
+        .right-area .btn {
             border: none;
             border-radius: 1em;
             margin: 0 0.3em;
             padding: 10px;
             background-color: #0C0B0B;
             color: white;
+            cursor: pointer;
         }
-        #right-area .btn img { width: 1.2em; }
+
+        .right-area .btn:hover {
+            background-color: #0b0b0b;
+        }
+
+        .right-area .btn img {
+            width: 1.2em;
+        }
 
 
-        #right-area table {
+        .right-area table {
             border-spacing: 0 1em;
         }
-        #right-area tr {
+
+        .right-area tr {
             padding: 1em;
         }
 
-        #right-area tr label {
+        .right-area #user-manage tr label {
             color: #FFF;
 
             font-family: Pretendard;
@@ -131,16 +152,179 @@
             line-height: 13px;
             /* 86.667% */
         }
-        #right-area tr input {
+
+        .right-area #user-manage tr input {
             width: 100%;
             height: 25px;
-            
+
             border-radius: 10px;
-            border:none;
+            border: none;
             background-color: #ccc;
 
             padding: 0 10px;
         }
+
+        .right-area #perm-manage table {
+            width: 95%;
+            margin: auto;
+        }
+
+        .right-area #perm-manage table tr {
+            background: #282828;
+        }
+
+        .right-area #perm-manage table td,
+        .right-area #perm-manage table th {
+            padding: 10px;
+            height: 30px;
+            box-sizing: border-box;
+        }
+
+        .perm-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 0px;
+        }
+
+        .perm-area label {
+            display: flex;
+            align-items: center;
+            width: calc(53% - 12px);
+            margin-bottom: 10px;
+        }
+
+        .perm-area input[type=checkbox] {
+            margin-right: 5px;
+        }
+
+        #perm-manage .datalist-input {
+            background-color: #282828;
+            color: #DDDDDD80;
+            font-weight: bolder;
+            border: none;
+            height: 30px;
+            width: 100%;
+            padding: 5px;
+        }
+
+        #perm-manage .datalist-input:focus {
+            outline: none;
+        }
+
+
+        /***  토글 관련 css ***/
+        /* From Uiverse.io by JaydipPrajapati1910 */
+        .toggle-button-cover {
+            display: table-cell;
+            position: relative;
+            box-sizing: border-box;
+            top: 12px;
+        }
+
+        .button-cover {
+            height: 100px;
+            background-color: #fff;
+            box-shadow: 0 10px 20px -8px #c5d6d6;
+            border-radius: 4px;
+        }
+
+        .button-cover:before {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: #d7e3e3;
+            font-size: 12px;
+            line-height: 1;
+            padding: 5px;
+        }
+
+        .button-cover,
+        .knobs,
+        .layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .button {
+            position: relative;
+            top: 50%;
+            width: 74px;
+            height: 36px;
+            margin: -20px auto 0 auto;
+            overflow: hidden;
+        }
+
+        .checkbox {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .knobs {
+            z-index: 2;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 20px;
+            height: 10px;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            padding: 9px 4px;
+            border-radius: 50%;
+            transition: none;
+        }
+
+        .layer {
+            width: 100%;
+            background-color: #E3E3E3;
+            z-index: 1;
+        }
+
+        .button.r,
+        .button.r .layer {
+            border-radius: 10px;
+        }
+
+        #button-3 .checkbox:checked~.layer {
+            background-color: #E3E3E3;
+        }
+
+        #button-3 .knobs:before {
+            content: "ON";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 10px;
+            color: #fff;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            padding: 9px 4px;
+            background-color: #60BE43;
+            border-radius: 10px;
+        }
+
+        #button-3 .checkbox:checked+.knobs:before {
+            content: "OFF";
+            background-color: #CA3D3D;
+            left: 38px;
+        }
+
+
+        /*************************************/
 
         /*********************************************************/
     </style>
@@ -211,9 +395,9 @@
         <div class="section" id="left-area">
             <div class="top">
                 <ul id="left-menu">
-                    <li class="select">사용자 관리</li>
-                    <li>알람 이력</li>
-                    <li>사용자 권한 관리</li>
+                    <li class="select"><a href="page10.html">사용자 관리</a></li>
+                    <li><a href="#">알람 이력</a></li>
+                    <li><a href="#">사용자 권한 관리</a></li>
                 </ul>
                 <div></div>
             </div>
@@ -336,7 +520,7 @@
                 </table>
             </div>
         </div>
-        <div class="section" id="right-area">
+        <div class="section right-area">
             <div class="top">
                 <button class="btn">
                     <img src="../../assets/image/page10/fi_6632509.svg" alt="인쇄아이콘">
@@ -348,103 +532,278 @@
                 </button>
             </div>
             <div class="middle">
-                <div class="btn-area">
-                    <button class="btn">
-                        <img src="../../assets/image/page10/fi_17701286.svg" alt="사용자 아이콘">
-                        사용자 정보
-                    </button>
-                    <button class="btn">
-                        <img src="../../assets/image/page10/fi_9071984.svg" alt="권한 관리 아이콘">
-                        권한 관리
-                    </button>
+                <!-- 사용자 관리 -->
+                <div id="user-manage" class="show">
+                    <div class="btn-area">
+                        <button class="btn" onclick="showUserManage();">
+                            <img src="../../assets/image/page10/fi_17701286.svg" alt="사용자 아이콘">
+                            사용자 정보
+                        </button>
+                        <button class="btn" onclick="showPermManage();">
+                            <img src="../../assets/image/page10/fi_9071984.svg" alt="권한 관리 아이콘">
+                            권한 관리
+                        </button>
+                    </div>
+                    <div class="input-area">
+                        <p class="article-title">
+                            <img src="../../assets/image/page10/fi_17701286.svg" alt="사용자 아이콘">
+                            사용자 정보
+                        </p>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label for="userId">
+                                        <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
+                                        사용자ID
+                                    </label>
+                                </td>
+                                <td><input type="text" name="" id="userId"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="userPwd">
+                                        <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
+                                        비밀번호
+                                    </label>
+                                </td>
+                                <td><input type="password" name="" id="userPwd"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="phone">
+                                        <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
+                                        전화번호
+                                    </label>
+                                </td>
+                                <td><input type="text" name="" id="phone"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="userName">
+                                        <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
+                                        이름
+                                    </label>
+                                </td>
+                                <td><input type="text" name="" id="userName"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="userPwdCheck">
+                                        <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
+                                        비밀번호 확인
+                                    </label>
+                                </td>
+                                <td><input type="password" id="userPwdCheck"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="email">
+                                        <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
+                                        이메일
+                                    </label>
+                                </td>
+                                <td><input type="text" name="" id="email"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="btn-area">
+                        <button class="btn">
+                            <img src="../../assets/image/page10/fi_1828817.svg" alt="추가아이콘">
+                            추가
+                        </button>
+                        <button class="btn">
+                            <img src="../../assets/image/page10/fi_10695860.svg" alt="초기화아이콘">
+                            초기화
+                        </button>
+                        <button class="btn">
+                            <img src="../../assets/image/page10/fi_2280557.svg" alt="수정아이콘">
+                            수정
+                        </button>
+                        <button class="btn">
+                            <img src="../../assets/image/page10/fi_9790368.svg" alt="수정아이콘">
+                            삭제
+                        </button>
+                        <button class="btn">
+                            <img src="../../assets/image/page10/fi_9790368.svg" alt="수정아이콘">
+                            취소
+                        </button>
+                    </div>
                 </div>
-                <div class="input-area">
-                    <p class="article-title">
-                        <img src="../../assets/image/page10/fi_17701286.svg" alt="사용자 아이콘">
-                        사용자 정보
-                    </p>
-                    <table>
-                        <tr>
-                            <td>
-                                <label for="userId">
-                                    <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
-                                    사용자ID
-                                </label>
-                            </td>
-                            <td><input type="text" name="" id="userId"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="userPwd">
-                                    <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
-                                    비밀번호
-                                </label>
-                            </td>
-                            <td><input type="password" name="" id="userPwd"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="userPwdCheck">
-                                    <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
-                                    비밀번호 확인
-                                </label>
-                            </td>
-                            <td><input type="password" id="userPwdCheck"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="phone">
-                                    <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
-                                    전화번호
-                                </label>
-                            </td>
-                            <td><input type="tel" name="" id="phone"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="userName">
-                                    <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
-                                    이름
-                                </label>
-                            </td>
-                            <td><input type="text" name="" id="userName"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="email">
-                                    <img src="../../assets/image/page10/image%201.png" alt="불릿 아이콘">
-                                    이메일
-                                </label>
-                            </td>
-                            <td><input type="email" name="" id="email"></td>
-                        </tr>
-                    </table>
+                <!-------------->
+                <!-- 권한 관리  -->
+                <div id="perm-manage">
+                    <div class="btn-area">
+                        <button class="btn" onclick="showUserManage();">
+                            <img src="../../assets/image/page10/fi_17701286.svg" alt="사용자 아이콘">
+                            사용자 정보
+                        </button>
+                        <button class="btn" onclick="showPermManage();">
+                            <img src="../../assets/image/page10/fi_9071984.svg" alt="권한 관리 아이콘">
+                            권한 관리
+                        </button>
+                    </div>
+                    <div class="input-area">
+                        <p class="article-title">
+                            <img src="../../assets/image/page10/fi_9071984.svg" alt="권한 관리 아이콘">
+                            권한 관리
+                        </p>
+                        <table>
+                            <colgroup>
+                                <col width="30%">
+                            </colgroup>
+                            <tr>
+                                <th>알림 수신</th>
+                                <td>
+                                    <!-- From Uiverse.io by JaydipPrajapati1910 -->
+                                    <div class="toggle-button-cover">
+                                        <div id="button-3" class="button r">
+                                            <input class="checkbox" type="checkbox">
+                                            <div class="knobs"></div>
+                                            <div class="layer"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>등급</th>
+                                <td>
+                                    <input list="grades" name="grade" id="grade" placeholder="등급 선택"
+                                        class="datalist-input">
+                                    <datalist id="grades">
+                                        <option value="등급A">
+                                        <option value="등급B">
+                                        <option value="등급C">
+                                    </datalist>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>상위 관리자</th>
+                                <td>
+                                    <input list="admin-roles" name="role" id="role" placeholder="관리자 선택" class="datalist-input">
+                                    <datalist id="admin-roles">
+                                        <option value="상위관리자">
+                                        <option value="중간관리자">
+                                        <option value="일반관리자">
+                                    </datalist>                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>발전소 그룹</th>
+                                <td>
+                                    <input list="power-plant-groups" name="group" id="group" placeholder="발전소 그룹 선택" class="datalist-input">
+                                    <datalist id="power-plant-groups">
+                                        <option value="발전소그룹1">
+                                        <option value="발전소그룹2">
+                                        <option value="발전소그룹3">
+                                    </datalist>                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>사용 권한</th>
+                                <td>
+                                    <div class="perm-area">
+                                        <label>
+                                            <input type="checkbox" name="permission" value="pm1">
+                                            발전 시간 비교
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="permission" value="pm2">
+                                            지역 기반 효율 계산
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="permission" value="pm3">
+                                            실시간 모니터링
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="permission" value="pm4">
+                                            예측발전비교
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="permission" value="pm5">
+                                            모듈 모니터링
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="permission" value="pm6">
+                                            주소기반 예상발전량
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="permission" value="pm7">
+                                            점검 관리
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="permission" value="pm8">
+                                            월별 종합분석
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>사용 승인</th>
+                                <td>
+                                    <!-- From Uiverse.io by JaydipPrajapati1910 -->
+                                    <div class="toggle-button-cover">
+                                        <div id="button-3" class="button r">
+                                            <input class="checkbox" type="checkbox">
+                                            <div class="knobs"></div>
+                                            <div class="layer"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>홈화면 타입</th>
+                                <td>
+                                    <input list="home-screen-types" name="home-screen" id="home-screen" placeholder="홈화면 타입 선택" class="datalist-input">
+                                    <datalist id="home-screen-types">
+                                        <option value="홈화면 타입A">
+                                        <option value="홈화면 타입B">
+                                        <option value="홈화면 타입C">
+                                    </datalist>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>사용자 지정 로고</th>
+                                <td>
+                                    <input list="custom-logos" name="logo" id="logo" placeholder="사용자 지정 로고 선택" class="datalist-input">
+                                    <datalist id="custom-logos">
+                                        <option value="사용자 지정 로고1">
+                                        <option value="사용자 지정 로고2">
+                                        <option value="사용자 지정 로고3">
+                                    </datalist>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
                 </div>
-                <div class="btn-area">
-                    <button class="btn">
-                        <img src="../../assets/image/page10/fi_1828817.svg" alt="추가아이콘">
-                        추가
-                    </button>
-                    <button class="btn">
-                        <img src="../../assets/image/page10/fi_10695860.svg" alt="초기화아이콘">
-                        초기화
-                    </button>
-                    <button class="btn">
-                        <img src="../../assets/image/page10/fi_2280557.svg" alt="수정아이콘">
-                        수정
-                    </button>
-                    <button class="btn">
-                        <img src="../../assets/image/page10/fi_9790368.svg" alt="수정아이콘">
-                        삭제
-                    </button>
-                    <button class="btn">
-                        <img src="../../assets/image/page10/fi_9790368.svg" alt="수정아이콘">
-                        취소
-                    </button>
-                </div>
+                <!-------------->
             </div>
         </div>
     </div>
 </body>
+
+<script>
+    /** 사용자 관리 버튼 클릭 시 화면에 표시 **/
+    const showUserManage = () => {
+        const userManageEle = document.querySelector("#user-manage");
+        const className = userManageEle.className;
+        userManageEle.className = className + " show";
+
+        removeShowClass(document.querySelector("#perm-manage"));
+    }
+
+    /** 권한 관리 버튼 클릭 시 화면에 표시 **/
+    const showPermManage = () => {
+        const permManageEle = document.querySelector("#perm-manage");
+        const className = permManageEle.className;
+        permManageEle.className = className + " show";
+
+        removeShowClass(document.querySelector("#user-manage"));
+    }
+
+    const removeShowClass = (target) => {
+        target.className = target.className.replace("show", "");
+    }
+</script>
 
 </html>
